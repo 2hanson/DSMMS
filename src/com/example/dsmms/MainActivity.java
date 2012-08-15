@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
@@ -21,10 +22,14 @@ public class MainActivity extends Activity {
 	private Process process;
 	
 	private int buttonStatus = 0;//0 is start; 1 is stop
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+        //设置全屏  
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,   
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
         setContentView(R.layout.activity_main);
         
@@ -131,3 +136,4 @@ public class MainActivity extends Activity {
     	}
     }
 }
+
