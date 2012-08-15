@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
 
 	private Button startButton;
 	private Button stopButton;
+	private Button ctrlButton;
 	private Process process;
 	
 	private int buttonStatus = 0;//0 is start; 1 is stop
@@ -30,6 +31,7 @@ public class MainActivity extends Activity {
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.top_bar); 
         this.startButton = (Button)findViewById(R.id.startbutton);
         this.stopButton = (Button)findViewById(R.id.stopbutton);
+        this.ctrlButton = (Button)findViewById(R.id.ctrlbutton);
         this.startButton.setOnClickListener(onStartButtonClick);
         this.stopButton.setOnClickListener(onStopButtonClick);
     }
@@ -64,11 +66,13 @@ public class MainActivity extends Activity {
 		{
 			this.startButton.setVisibility(View.VISIBLE);
 			this.stopButton.setVisibility(View.GONE);
+			this.ctrlButton.setClickable(false);
 		}
 		else
 		{
 			this.stopButton.setVisibility(View.VISIBLE);
 			this.startButton.setVisibility(View.GONE);
+			this.ctrlButton.setClickable(true);
 		}
 	}
     

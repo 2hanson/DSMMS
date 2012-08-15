@@ -1,14 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
+    android:background="#D3D3D3"
     android:layout_height="fill_parent" >
-    
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:background="#C0C0C0"
+    android:layout_height="wrap_content"
+    android:minHeight="120dip" >
     <Button
         android:id="@+id/startbutton"
         android:layout_width="wrap_content"
-        android:minWidth="225dip"
+        android:minWidth="228dip"
         android:layout_height="wrap_content"
-        android:minHeight="35dip"
+        android:minHeight="36dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="46dp"
@@ -16,14 +23,13 @@
         android:textSize="21dp"
         android:background="@drawable/bg_alistartbutton"
         android:text="@string/start_message" />
-    
 	<Button
         android:visibility="gone"
         android:id="@+id/stopbutton"
         android:layout_width="wrap_content"
-        android:minWidth="225dip"
+        android:minWidth="228dip"
         android:layout_height="wrap_content"
-        android:minHeight="35dip"
+        android:minHeight="36dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="46dp"
@@ -31,5 +37,27 @@
         android:textSize="21dp"
         android:background="@drawable/bg_alistopbutton"
         android:text="@string/stop_message" />
-
+	</RelativeLayout>
+	<TextView android:id="@+id/ctrl_textview"
+        android:text="@string/ctrl_text"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:textSize="23dp"
+        android:layout_height="wrap_content">
+    </TextView>
+	<Button
+        android:id="@+id/ctrlbutton"
+        android:layout_width="wrap_content"
+        android:clickable="false"
+        android:minWidth="228dip"
+        android:layout_height="wrap_content"
+        android:minHeight="36dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="319dp"
+        android:textSize="21dp"
+        android:background="@drawable/bg_alictrlbutton"
+        android:text="@string/ctrl_message" />
 </RelativeLayout>
