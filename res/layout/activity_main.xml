@@ -11,8 +11,8 @@
         android:minHeight="35dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="39dp"
         android:textSize="21dp"
         android:background="@drawable/bg_alistartbutton"
         android:text="@string/start_message" />
@@ -26,8 +26,8 @@
         android:minHeight="35dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="39dp"
         android:textSize="21dp"
         android:background="@drawable/bg_alistopbutton"
         android:text="@string/stop_message" />
