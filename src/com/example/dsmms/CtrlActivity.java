@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 
 public class CtrlActivity extends Activity {
@@ -28,19 +28,6 @@ public class CtrlActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
         setContentView(R.layout.activity_ctrl);
-
-        /*
-        */
-
-        try {
-			startCommand("system/bin/cngictrl");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
         
         this.testButton = (Button)findViewById(R.id.testbutton);
         
@@ -49,7 +36,15 @@ public class CtrlActivity extends Activity {
 	
     private OnClickListener onTestButtonClick = new OnClickListener() {
 		public void onClick(View v) {
-			
+	        try {
+				startCommand("system/bin/cngictrl");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	};
 	
@@ -73,10 +68,34 @@ public class CtrlActivity extends Activity {
     		this.process.destroy();
     		this.process = null;
     	}
-    	Runtime runtime = Runtime.getRuntime();
+    	/*Runtime runtime = Runtime.getRuntime();
     	
     	this.process = runtime.exec(command);
     	
+    	OutputStream stdin = null;
+    	InputStream stdout = null;
+    	InputStream stderr = null;
+    	
+    	stdin = this.process.getOutputStream();
+    	stdout = this.process.getInputStream();
+    	stderr = this.process.getErrorStream();
+    	
+    	String line = "help" + "\n";
+    	stdin.write( line.getBytes() );
+    	stdin.flush();
+    	
+    	stdin.close();
+    	
+    	BufferedReader br = new BufferedReader (new InputStreamReader (stderr));
+    	
+    	while (null != (line = br.readLine()))
+    	{
+    		String temp = line;
+    		temp = line + "  ;;this";
+    		
+    	}
+    	
+    	br.close();*/
     }
     
     private void stopCommand()
