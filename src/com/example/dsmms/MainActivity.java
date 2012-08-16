@@ -1,11 +1,9 @@
 package com.example.dsmms;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -39,6 +37,7 @@ public class MainActivity extends Activity {
         this.ctrlButton = (Button)findViewById(R.id.ctrlbutton);
         this.startButton.setOnClickListener(onStartButtonClick);
         this.stopButton.setOnClickListener(onStopButtonClick);
+        this.ctrlButton.setOnClickListener(onCtrlButtonClick);
     }
 
     private OnClickListener onStartButtonClick = new OnClickListener() {
@@ -61,6 +60,14 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			changeButtonStatus();
 			stopCommand();
+		}
+	};
+	
+    private OnClickListener onCtrlButtonClick = new OnClickListener() {
+		public void onClick(View v) {
+			Intent intent = new Intent();
+			intent.setClass(MainActivity.this, CtrlActivity.class);
+			startActivity(intent);
 		}
 	};
 	
@@ -88,44 +95,16 @@ public class MainActivity extends Activity {
     }
 
  // Executes UNIX command.
-    private String startCommand(String command) throws IOException, InterruptedException 
+    private void startCommand(String command) throws IOException, InterruptedException 
     {
     	if (this.process != null)
     	{
     		this.process.destroy();
-    		this.process = null;
     	}
-    	StringBuilder retStr = new StringBuilder("");
-    	retStr.append("start...");
-    	//outPut(retStr.toString());
+
     	Runtime runtime = Runtime.getRuntime();
     	
     	this.process = runtime.exec(command);
-    	
-    	retStr.append("runing...");
-    	//outPut(retStr.toString());
-    	
-    	InputStream is = process.getErrorStream();//if getInputStream(), readLine will throw a exception, due to cngi code fprintf.
-    	InputStreamReader isr = new InputStreamReader(is);
-    	BufferedReader br = new BufferedReader(isr);
-    	String line = null;
-
-
-	    while (null != (line = br.readLine()))/////////exception
-	    {
-	    	retStr.append(line+"\n");
-	    	if (retStr.length() > 100)
-	    		break;
-	    }
-
-    	retStr.append("end...");
-    	//outPut(retStr.toString());
-    	if (process != null)
-    	{
-    		//process.waitFor();
-    	}
-    	//process.destroy();     stop mn
-    	return retStr.toString();
     }
     
     private void stopCommand()

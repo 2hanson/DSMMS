@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CtrlActivity" android:label="@string/ctrl_name"></activity>
     </application>
 
 </manifest>
