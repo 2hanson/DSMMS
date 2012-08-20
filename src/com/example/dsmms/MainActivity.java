@@ -105,6 +105,12 @@ public class MainActivity extends Activity {
     	Runtime runtime = Runtime.getRuntime();
     	
     	this.process = runtime.exec(command);
+    	StreamGobbler errorGobbler = new StreamGobbler(this.process.getErrorStream(), "Error");
+    	StreamGobbler stdoutGobbler = new StreamGobbler(this.process.getInputStream(), "Output");
+    	errorGobbler.start();
+    	stdoutGobbler.start();
+    	int k = 1;
+    	k = k + 1;
     }
     
     private void stopCommand()
