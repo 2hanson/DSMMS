@@ -19,7 +19,7 @@ public class CtrlActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //设置全屏  
+        //设置全屏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,   
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
@@ -33,7 +33,7 @@ public class CtrlActivity extends Activity {
     private OnClickListener onTestButtonClick = new OnClickListener() {
 		public void onClick(View v) {
 	        try {
-				startCommand("system/bin/cngictrl");
+				startCommand("system/bin/yucngictrl");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -59,39 +59,32 @@ public class CtrlActivity extends Activity {
 	 // Executes UNIX command.
     private void startCommand(String command) throws IOException, InterruptedException 
     {
+    	//just for debug
+    	
     	if (this.process != null)
     	{
     		this.process.destroy();
     		this.process = null;
     	}
-    	/*Runtime runtime = Runtime.getRuntime();
+
+    	Runtime runtime = Runtime.getRuntime();
     	
-    	this.process = runtime.exec(command);
+    	this.process = runtime.exec(new String[]{ "/system/xbin/su", "-c", command});
     	
-    	OutputStream stdin = null;
-    	InputStream stdout = null;
-    	InputStream stderr = null;
+    	//OutputStream stdin = null;
     	
-    	stdin = this.process.getOutputStream();
-    	stdout = this.process.getInputStream();
-    	stderr = this.process.getErrorStream();
+    	//stdin = this.process.getOutputStream();
     	
-    	String line = "help" + "\n";
-    	stdin.write( line.getBytes() );
-    	stdin.flush();
+    	//String line = "help" + "\n";
+    	//stdin.write( line.getBytes() );
+    	//stdin.flush();
     	
-    	stdin.close();
+    	//stdin.close();
     	
-    	BufferedReader br = new BufferedReader (new InputStreamReader (stderr));
-    	
-    	while (null != (line = br.readLine()))
-    	{
-    		String temp = line;
-    		temp = line + "  ;;this";
-    		
-    	}
-    	
-    	br.close();*/
+    	StreamGobbler errorGobbler = new StreamGobbler(this.process.getErrorStream(), "Error");
+    	StreamGobbler stdoutGobbler = new StreamGobbler(this.process.getInputStream(), "Output");
+    	errorGobbler.start();
+    	stdoutGobbler.start();
     }
     
     private void stopCommand()

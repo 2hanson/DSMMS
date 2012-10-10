@@ -10,6 +10,7 @@
 	<string name="stop_message">关闭移动管理</string>
 	<string name="ctrl_text">进入控制界面后可进行开关手机wifi，设置自动切换等操作。必须先开启移动管理系统,之后才能进入控制界面。</string>
 	<string name="app_title">双栈移动管理系统</string>
+	<string name="click_text">click</string>
 	
 	<style name="CustomWindowTitleBackground">
 		<item name="android:background">#4169E1</item>

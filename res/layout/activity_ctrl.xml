@@ -23,5 +23,6 @@
         android:layout_marginLeft="46dp"
         android:layout_marginTop="319dp"
         android:textSize="21dp"
-        android:text="click" />
+        android:text="@string/click_text" />
+
 </RelativeLayout>

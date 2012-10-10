@@ -3,7 +3,6 @@ package com.example.dsmms;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -58,25 +57,12 @@ public class StreamGobbler extends Thread {
 				if (type.equals("Error"))
 				{
 					writeByOutputStream(errorLogFile, line);
-					//errorInfo += line;
-					//writeByFileWrite(errorLogFile, line);
 				}
 				else
 				{
 					writeByOutputStream(debugLogFile, line);
-					//debugInfo += line;
-					//writeByFileWrite(debugLogFile, line);
 				}
 			}
-			
-			//if (type.equals("Error"))
-			//{
-				
-			//}
-			//else
-			//{
-				
-			//}
 		}
 		catch (IOException ioe)
 		{}

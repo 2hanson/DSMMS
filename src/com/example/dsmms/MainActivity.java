@@ -1,6 +1,7 @@
 package com.example.dsmms;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -25,13 +26,13 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        //设置全屏  
+        //设置全屏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,   
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);        
         setContentView(R.layout.activity_main);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.top_bar);
         
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.top_bar); 
+        //add listener
         this.startButton = (Button)findViewById(R.id.startbutton);
         this.stopButton = (Button)findViewById(R.id.stopbutton);
         this.ctrlButton = (Button)findViewById(R.id.ctrlbutton);
@@ -43,7 +44,7 @@ public class MainActivity extends Activity {
     private OnClickListener onStartButtonClick = new OnClickListener() {
 		public void onClick(View v) {
 			changeButtonStatus();
-			//runCommand();
+
 			try {
 				startCommand("system/bin/mn");
 			} catch (IOException e) {
@@ -71,6 +72,22 @@ public class MainActivity extends Activity {
 		}
 	};
 	
+	void inputP() throws IOException
+	{
+		
+    	OutputStream stdin = null;
+    	stdin = this.process.getOutputStream();
+    	String line = "help" + "\n";
+    	try {
+			stdin.write( line.getBytes() );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	stdin.flush();
+    	stdin.close();
+	}
+	
 	private void changeButtonStatus()
 	{
 		this.buttonStatus = 1 - this.buttonStatus;
@@ -94,7 +111,7 @@ public class MainActivity extends Activity {
         return true;
     }
 
- // Executes UNIX command.
+    // Executes UNIX command.
     private void startCommand(String command) throws IOException, InterruptedException 
     {
     	if (this.process != null)
@@ -104,13 +121,11 @@ public class MainActivity extends Activity {
 
     	Runtime runtime = Runtime.getRuntime();
     	
-    	this.process = runtime.exec(command);
+    	this.process = runtime.exec(new String[]{ "/system/xbin/su", "-c", command});
     	StreamGobbler errorGobbler = new StreamGobbler(this.process.getErrorStream(), "Error");
     	StreamGobbler stdoutGobbler = new StreamGobbler(this.process.getInputStream(), "Output");
     	errorGobbler.start();
     	stdoutGobbler.start();
-    	int k = 1;
-    	k = k + 1;
     }
     
     private void stopCommand()
@@ -122,3 +137,36 @@ public class MainActivity extends Activity {
     }
 }
 
+/*
+try {
+	//inputP();
+} catch (IOException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}*/
+
+//this.process = runtime.exec("/system/xbin/su system/bin/cngictrl");
+
+/*this.process = runtime.exec("/system/bin/su");
+DataOutputStream osw = new DataOutputStream(this.process.getOutputStream());
+osw.writeBytes(command);
+osw.flush();
+osw.close();
+DataOutputStream osw = new DataOutputStream(this.process.getOutputStream());
+String line = "help" + "\n";
+osw.writeBytes(line);
+osw.flush();
+*/
+	
+//osw.close();
+//osw.
+
+//this.process = runtime.exec("/system/xbin/su");
+//this.process = runtime.exec(command);
+
+/*
+StreamGobbler terrorGobbler = new StreamGobbler(tp.getErrorStream(), "Error");
+StreamGobbler tstdoutGobbler = new StreamGobbler(tp.getInputStream(), "Output");
+terrorGobbler.start();
+tstdoutGobbler.start();
+*/
