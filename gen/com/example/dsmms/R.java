@@ -54,6 +54,7 @@ public final class R {
         public static final int ctrl_message=0x7f050006;
         public static final int ctrl_name=0x7f050001;
         public static final int ctrl_text=0x7f050008;
+        public static final int default_script=0x7f05000b;
         public static final int hello_world=0x7f050002;
         public static final int menu_settings=0x7f050003;
         public static final int start_message=0x7f050005;

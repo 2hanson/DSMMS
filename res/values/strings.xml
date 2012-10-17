@@ -12,6 +12,8 @@
 	<string name="app_title">双栈移动管理系统</string>
 	<string name="click_text">click</string>
 	
+	<string name="default_script">echo \'Hello, world!\'</string>
+	
 	<style name="CustomWindowTitleBackground">
 		<item name="android:background">#4169E1</item>
 	</style>

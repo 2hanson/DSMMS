@@ -1,6 +1,8 @@
 package com.example.dsmms;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import android.app.Activity;
@@ -60,7 +62,15 @@ public class MainActivity extends Activity {
     private OnClickListener onStopButtonClick = new OnClickListener() {
 		public void onClick(View v) {
 			changeButtonStatus();
-			stopCommand();
+			try {
+				stopCommand();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	};
 	
@@ -69,12 +79,22 @@ public class MainActivity extends Activity {
 			Intent intent = new Intent();
 			intent.setClass(MainActivity.this, CtrlActivity.class);
 			startActivity(intent);
+			
+			/*
+			Intent intent = 
+					new Intent("jackpal.androidterm.RUN_SCRIPT");
+					//new Intent("jackpal.androidterm.OPEN_NEW_WINDOW");
+			intent.addCategory(Intent.CATEGORY_PREFERENCE);
+			
+			String command = getString(R.string.default_script);
+			
+			intent.putExtra("jackpal.androidterm.iInitialCommand", command);
+			startActivity(intent);*/
 		}
 	};
 	
 	void inputP() throws IOException
 	{
-		
     	OutputStream stdin = null;
     	stdin = this.process.getOutputStream();
     	String line = "help" + "\n";
@@ -128,45 +148,71 @@ public class MainActivity extends Activity {
     	stdoutGobbler.start();
     }
     
-    private void stopCommand()
+    private void stopCommand() throws IOException, InterruptedException
     {
     	if (this.process != null)
     	{
     		this.process.destroy();
     	}
+    	Runtime runtime = Runtime.getRuntime();
+    	    	
+    	this.process = runtime.exec(new String[]{ "/system/xbin/su", "-c", "ps", "-U", "mn"});
+    	
+    	
+    	BufferedReader err = new BufferedReader(
+		        new InputStreamReader(this.process.getErrorStream()));
+    	String lineErr = null;
+    	while ((lineErr = err.readLine()) != null) {
+    	}
+    	
+    	BufferedReader in = new BufferedReader(
+    		        new InputStreamReader(this.process.getInputStream()));
+    	String line = null;
+    	boolean skip = true;
+    	while ((line = in.readLine()) != null) {
+    		//ine += line + "\n";
+    		if (skip == true)
+    		{
+    			skip = false;
+    		}
+    		else
+    		{
+    			String pid = "";
+    			for (int index = 0; index < line.length(); ++index)
+    			{
+    				char ch = line.charAt(index);
+    				//if ()
+    				if (Character.isDigit(ch))
+    				{
+    					while (Character.isDigit( ch = line.charAt(index) ))
+    					{
+        					pid = pid + ch;
+        					++index;
+    					}
+        				break;
+    				}
+    			}
+    			
+    			if (pid != null && pid != "")
+    			{
+    		    	this.process = runtime.exec(new String[]{ "/system/xbin/su", "-c", "kill", pid});
+    		    	
+    		    	
+    		    	BufferedReader killerr = new BufferedReader(
+    				        new InputStreamReader(this.process.getErrorStream()));
+    		    	String killlineErr = null;
+    		    	while ((killlineErr = killerr.readLine()) != null) {
+    		    	}
+    		    	
+    		    	BufferedReader killin = new BufferedReader(
+    		    		        new InputStreamReader(this.process.getInputStream()));
+    		    	String killline = null;
+    		    	while ((killline = killin.readLine()) != null) {
+    		    	}
+    			}
+    		}
+    	}
+    	
+
     }
 }
-
-/*
-try {
-	//inputP();
-} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}*/
-
-//this.process = runtime.exec("/system/xbin/su system/bin/cngictrl");
-
-/*this.process = runtime.exec("/system/bin/su");
-DataOutputStream osw = new DataOutputStream(this.process.getOutputStream());
-osw.writeBytes(command);
-osw.flush();
-osw.close();
-DataOutputStream osw = new DataOutputStream(this.process.getOutputStream());
-String line = "help" + "\n";
-osw.writeBytes(line);
-osw.flush();
-*/
-	
-//osw.close();
-//osw.
-
-//this.process = runtime.exec("/system/xbin/su");
-//this.process = runtime.exec(command);
-
-/*
-StreamGobbler terrorGobbler = new StreamGobbler(tp.getErrorStream(), "Error");
-StreamGobbler tstdoutGobbler = new StreamGobbler(tp.getInputStream(), "Output");
-terrorGobbler.start();
-tstdoutGobbler.start();
-*/
