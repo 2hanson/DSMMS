@@ -148,16 +148,16 @@ public class MainActivity extends Activity {
     	stdoutGobbler.start();
     }
     
-    private void stopCommand() throws IOException, InterruptedException
+    private void runtimeEXEC(String[] command, boolean handleOutput) throws IOException, InterruptedException
     {
     	if (this.process != null)
     	{
     		this.process.destroy();
     	}
-    	Runtime runtime = Runtime.getRuntime();
-    	    	
-    	this.process = runtime.exec(new String[]{ "/system/xbin/su", "-c", "ps", "-U", "mn"});
     	
+    	Runtime runtime = Runtime.getRuntime();
+    	
+    	this.process = runtime.exec(command);
     	
     	BufferedReader err = new BufferedReader(
 		        new InputStreamReader(this.process.getErrorStream()));
@@ -170,6 +170,10 @@ public class MainActivity extends Activity {
     	String line = null;
     	boolean skip = true;
     	while ((line = in.readLine()) != null) {
+    		if (handleOutput == false)
+    		{
+    			continue;
+    		}
     		//ine += line + "\n";
     		if (skip == true)
     		{
@@ -195,24 +199,19 @@ public class MainActivity extends Activity {
     			
     			if (pid != null && pid != "")
     			{
-    		    	this.process = runtime.exec(new String[]{ "/system/xbin/su", "-c", "kill", pid});
-    		    	
-    		    	
-    		    	BufferedReader killerr = new BufferedReader(
-    				        new InputStreamReader(this.process.getErrorStream()));
-    		    	String killlineErr = null;
-    		    	while ((killlineErr = killerr.readLine()) != null) {
-    		    	}
-    		    	
-    		    	BufferedReader killin = new BufferedReader(
-    		    		        new InputStreamReader(this.process.getInputStream()));
-    		    	String killline = null;
-    		    	while ((killline = killin.readLine()) != null) {
-    		    	}
+    				runtimeEXEC(new String[]{ "/system/xbin/su", "-c", "kill", pid}, false);
     			}
     		}
     	}
+    }
+    
+    private void stopCommand() throws IOException, InterruptedException
+    {
+    	if (this.process != null)
+    	{
+    		this.process.destroy();
+    	}
     	
-
+    	runtimeEXEC(new String[]{ "/system/xbin/su", "-c", "ps", "-U", "mn"}, true);
     }
 }
