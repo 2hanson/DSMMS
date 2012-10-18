@@ -16,23 +16,23 @@
         android:textSize="21dp"
         android:text="@string/auto_turn_text" />
 
-    <TextView
-        android:id="@+id/currentAPView"
+        <Button
+        android:id="@+id/refreshButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/autoTurnButton"
         android:layout_below="@+id/autoTurnButton"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="16dp"
         android:textSize="18dp"
-        android:text="@string/currentAP"/>
-
+        android:text="刷新IP地址" />
+    
     <TextView
         android:id="@+id/currentIPV4View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/currentAPView"
-        android:layout_below="@+id/currentAPView"
-        android:layout_marginTop="32dp"
+        android:layout_alignLeft="@+id/autoTurnButton"
+        android:layout_below="@+id/autoTurnButton"
+        android:layout_marginTop="56dp"
         android:textSize="18dp"
         android:text="@string/currentIPV4" />
     <TextView
@@ -44,5 +44,22 @@
         android:layout_marginTop="32dp"
         android:textSize="18dp"
         android:text="@string/currentIPV6" />
+
+    <TextView
+        android:id="@+id/currentIPV4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/currentIPV4View"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/currentIPV4View"
+        android:text="v4 address" />
+
+    <TextView
+        android:id="@+id/currentIPV6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/currentIPV6View"
+        android:layout_alignRight="@+id/currentIPV4"
+        android:text="v6 address" />
 
 </RelativeLayout>

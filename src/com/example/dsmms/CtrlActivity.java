@@ -5,18 +5,25 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class CtrlActivity extends Activity {
-
+		
 	private Process process;
 	private Button autoTurnButton;
-	
+	private Button refreshButton;
+
+	private TextView currentIpv4View;
+	private TextView currentIpv6View;
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +35,28 @@ public class CtrlActivity extends Activity {
         setContentView(R.layout.activity_ctrl);
         
         this.autoTurnButton = (Button)findViewById(R.id.autoTurnButton);
+        this.refreshButton = (Button)findViewById(R.id.refreshButton);
         
+        this.currentIpv4View = (TextView)findViewById(R.id.currentIPV4);
+        this.currentIpv6View = (TextView)findViewById(R.id.currentIPV6);
         this.autoTurnButton.setOnClickListener(onTestButtonClick);
+        this.refreshButton.setOnClickListener(onRefreshButtonClick);
+        
+	}
+	
+    private OnClickListener onRefreshButtonClick = new OnClickListener() {
+		public void onClick(View v) {
+			refreshIPAddress();
+		}
+	};
+	
+	private void refreshIPAddress()
+	{
+		
+		this.currentIpv4View.setText(IPAddressHelper.GetHostIpv4());
+		
+		this.currentIpv6View.setText(IPAddressHelper.GetHostIpv6());
+
 	}
 	
     private OnClickListener onTestButtonClick = new OnClickListener() {
