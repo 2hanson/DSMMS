@@ -38,7 +38,7 @@ public class ListenNetStateService extends Service {
 	                } else {
 	                    Log.d("mark", "没有可用网络");
 	                }
-	                
+	                //www.feeditout.com/android-custom-toast-view-from-service
 	                LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
 	                View layout = inflater.inflate(R.layout.activity_ctrl, null);
 	                
