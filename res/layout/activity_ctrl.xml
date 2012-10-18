@@ -3,17 +3,8 @@
     android:layout_width="fill_parent"
     android:background="#D3D3D3"
     android:layout_height="fill_parent" >
-
-	<TextView android:id="@+id/ctrl_textview"
-        android:text="@string/ctrl_text"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:textSize="23dp"
-        android:layout_height="wrap_content">
-    </TextView>
     <Button
-        android:id="@+id/testbutton"
+        android:id="@+id/autoTurnButton"
         android:layout_width="wrap_content"
         android:minWidth="228dip"
         android:layout_height="wrap_content"
@@ -21,8 +12,37 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="46dp"
-        android:layout_marginTop="319dp"
+        android:layout_marginTop="40dp"
         android:textSize="21dp"
-        android:text="@string/click_text" />
+        android:text="@string/auto_turn_text" />
+
+    <TextView
+        android:id="@+id/currentAPView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/autoTurnButton"
+        android:layout_below="@+id/autoTurnButton"
+        android:layout_marginTop="59dp"
+        android:textSize="18dp"
+        android:text="@string/currentAP"/>
+
+    <TextView
+        android:id="@+id/currentIPV4View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currentAPView"
+        android:layout_below="@+id/currentAPView"
+        android:layout_marginTop="32dp"
+        android:textSize="18dp"
+        android:text="@string/currentIPV4" />
+    <TextView
+        android:id="@+id/currentIPV6View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currentIPV4View"
+        android:layout_below="@+id/currentIPV4View"
+        android:layout_marginTop="32dp"
+        android:textSize="18dp"
+        android:text="@string/currentIPV6" />
 
 </RelativeLayout>

@@ -8,9 +8,12 @@
 	<string name="start_message">开启移动管理</string>
 	<string name="ctrl_message">进入控制界面</string>
 	<string name="stop_message">关闭移动管理</string>
-	<string name="ctrl_text">进入控制界面后可进行开关手机wifi，设置自动切换等操作。必须先开启移动管理系统,之后才能进入控制界面。</string>
 	<string name="app_title">双栈移动管理系统</string>
-	<string name="click_text">click</string>
+		<string name="ctrl_text">进入控制界面后可进行开关手机wifi，设置自动切换等操作。必须先开启移动管理系统,之后才能进入控制界面。</string>
+	<string name="auto_turn_text">启动自动切换模式</string>
+	<string name="currentAP">当前AP：</string>
+	<string name="currentIPV4">当前ipv4地址：</string>
+	<string name="currentIPV6">当前ipv6地址：</string>
 	
 	<string name="default_script">echo \'Hello, world!\'</string>
 	
