@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FlowManage</string>
+    <string name="main_label">流管理系统</string>
+    <string name="main_label_mobile_manage">移动管理</string>
+    <string name="main_label_interface_manage">接口信息管理</string>
+    
+    <string name="start_flow_mannage">开启手机流管理</string>
+    <string name="start_mobile_mannage">开启移动管理</string>
+    
+    <string name="cb_label">是否自动</string>
+    <string name="wifi_interface">WiFi接口</string>
+    <string name="wcdma_interface">WCDMA接口</string>
+    <string name="name_label">名称</string>
+    <string name="status_label">状态</string>
+    <string name="flow_data_label">流数量</string>
+    <string name="bandwidth_label">流量统计</string>
+    <string name="ha_label">家乡地址</string>
+    <string name="haa_label">家乡代理地址</string>
+    <string name="wifi_title">WiFi接口详细信息</string>
+    <string name="wcdma_title">WCDMA接口详细信息</string>
+    <string name="cur_ap_label">当前AP</string>
+    <string name="ip_label">IP地址</string>
+    
+    <string name="signal_label">信号强度</string>
+    
+        
+    <string name="ok_label">确定</string>
+	<string name="cancel_label">取消</string>
+	
+	<string name="protocol_label">协议</string>
+	<string name="source_address_label">源地址</string>
+	<string name="dest_address_label">目的地址</string>
+	
+	<string name="source_address_port">源端口</string>
+	<string name="dest_address_port">目的端口</string>
+	
+	<string name="wifi_flow_info">WiFi接口业务流信息</string>
+	<string name="wcdma_flow_info">WCDMA接口业务流信息</string>
+	
+</resources>

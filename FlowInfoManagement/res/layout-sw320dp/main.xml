@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button 
+        android:id="@+id/bt_start_flow"
+        android:text="@string/start_flow_mannage"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"/>
+    <Button 
+        android:id="@+id/bt_start_mobile"
+        android:text="@string/start_mobile_mannage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/bt_wifi_interfacce"
+        android:text="@string/wifi_interface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >           
+            <TextView
+                android:id="@+id/tv_wifi_name_label" 
+            	android:text="@string/name_label"
+            	android:layout_width="60dp"
+            	android:layout_height="wrap_content"           
+           		android:layout_marginLeft="10dp"
+            />
+            
+             <TextView 
+                android:text="null"
+                android:id="@+id/tv_wifi_name"
+                android:layout_toRightOf="@id/tv_wifi_name_label"
+                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_marginLeft="10dp"/>
+             
+             <TextView
+                 android:id="@+id/tv_wifi_status_label" 
+                 android:text="@string/status_label"
+                 android:layout_width="60dp"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/tv_wifi_name"
+                 android:layout_marginLeft="10dp"/>
+             <TextView 
+                 android:id="@+id/tv_wifi_status"
+                 android:text="null"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/tv_wifi_status_label"
+                 android:layout_marginLeft="10dp"
+                 android:layout_width="80dp"/>
+             
+              <TextView
+                android:id="@+id/tv_wifi_flow_data_label" 
+            	android:text="@string/flow_data_label"
+            	android:layout_width="60dp"
+            	android:layout_height="wrap_content"           
+           		android:layout_marginLeft="10dp"
+           		android:layout_below="@id/tv_wifi_name_label"
+            />
+            
+             <TextView 
+                android:text="null"
+                android:id="@+id/tv_wifi_flow_data"
+                android:layout_toRightOf="@id/tv_wifi_flow_data_label"
+                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_below="@id/tv_wifi_name"
+                android:layout_marginLeft="10dp"/>
+             
+             <TextView
+                android:id="@+id/tv_wifi_bandwidth_label" 
+            	android:text="@string/bandwidth_label"
+            	android:layout_width="60dp"
+            	android:layout_height="wrap_content"           
+           		android:layout_marginLeft="10dp"
+           		android:layout_below="@id/tv_wifi_status_label"
+           		android:layout_toRightOf="@id/tv_wifi_flow_data"
+           		
+            />
+            
+             <TextView 
+                android:text="null"
+                android:id="@+id/tv_wifi_bandwidth"
+                android:layout_toRightOf="@id/tv_wifi_bandwidth_label"
+                android:layout_width="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_wifi_status"/>
+            
+        </RelativeLayout>
+        
+        
+    </LinearLayout>
+    
+    
+     <Button
+        android:id="@+id/bt_wcdma_interfacce"
+        android:text="@string/wcdma_interface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+     <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >           
+            <TextView
+                android:id="@+id/tv_wcdma_name_label" 
+            	android:text="@string/name_label"
+            	android:layout_width="60dp"
+            	android:layout_height="wrap_content"           
+           		android:layout_marginLeft="10dp"
+            />
+            
+             <TextView 
+                android:text="null"
+                android:id="@+id/tv_wcdma_name"
+                android:layout_toRightOf="@id/tv_wcdma_name_label"
+                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_marginLeft="10dp"/>
+             
+             <TextView
+                 android:id="@+id/tv_wcdma_status_label" 
+                 android:text="@string/status_label"
+                 android:layout_width="60dp"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/tv_wcdma_name"
+                 android:layout_marginLeft="10dp"/>
+             <TextView 
+                 android:id="@+id/tv_wcdma_status"
+                 android:text="null"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/tv_wcdma_status_label"
+                 android:layout_marginLeft="10dp"
+                 android:layout_width="80dp"/>
+             
+              <TextView
+                android:id="@+id/tv_wcdma_flow_data_label" 
+            	android:text="@string/flow_data_label"
+            	android:layout_width="60dp"
+            	android:layout_height="wrap_content"           
+           		android:layout_marginLeft="10dp"
+           		android:layout_below="@id/tv_wcdma_name_label"
+            />
+            
+             <TextView 
+                android:text="null"
+                android:id="@+id/tv_wcdma_flow_data"
+                android:layout_toRightOf="@id/tv_wcdma_flow_data_label"
+                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_below="@id/tv_wcdma_name"
+                android:layout_marginLeft="10dp"/>
+             
+             <TextView
+                android:id="@+id/tv_wcdma_bandwidth_label" 
+            	android:text="@string/bandwidth_label"
+            	android:layout_width="60dp"
+            	android:layout_height="wrap_content"           
+           		android:layout_marginLeft="10dp"
+           		android:layout_below="@id/tv_wcdma_status_label"
+           		android:layout_toRightOf="@id/tv_wcdma_flow_data"
+           		
+            />
+            
+             <TextView 
+                android:text="null"
+                android:id="@+id/tv_wcdma_bandwidth"
+                android:layout_toRightOf="@id/tv_wcdma_bandwidth_label"
+                android:layout_width="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_wcdma_status"/>
+            
+        </RelativeLayout>
+        
+        
+    </LinearLayout>
+
+      <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >           
+            <TextView
+                android:id="@+id/tv_ha_label" 
+            	android:text="@string/ha_label"
+            	android:layout_width="60dp"
+            	android:layout_height="wrap_content"           
+           		android:layout_marginLeft="10dp"
+            />
+            
+             <TextView 
+                android:text="null"
+                android:id="@+id/tv_ha"
+                android:layout_toRightOf="@id/tv_ha_label"
+                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_marginLeft="10dp"/>
+             
+             <TextView
+                 android:id="@+id/tv_haa_label" 
+                 android:text="@string/haa_label"
+                 android:layout_width="60dp"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/tv_ha"
+                 android:layout_marginLeft="10dp"/>
+             <TextView 
+                 android:id="@+id/tv_haa"
+                 android:text="null"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/tv_haa_label"
+                 android:layout_marginLeft="10dp"
+                 android:layout_width="80dp"/>
+             
+          
+            
+        </RelativeLayout>
+        
+        
+    </LinearLayout>
+
+             
+      
+    
+
+</LinearLayout>

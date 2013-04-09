@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/mainbg" >
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_tab_bg"
+        android:layout_marginTop="10dp">
+	    <TextView 
+	        android:text="@string/wifi_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/text_label_color_tab"
+	        android:textSize="20sp"/>
+	  
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	      	android:layout_height="wrap_content"
+	      	android:orientation="vertical">
+	      	<RelativeLayout 
+	        	android:layout_width="fill_parent"
+	          	android:layout_height="wrap_content">           
+		        <TextView
+		            android:id="@id/tv_wifi_name_label" 
+		        	android:text="@string/name_label"
+		        	android:layout_width="60dp"
+		        	android:layout_height="wrap_content"           
+		       		android:layout_marginLeft="10dp"
+		       		android:textColor="@color/text_label_color"
+		        />
+		          
+		        <TextView 
+		            android:text="null"
+		            android:id="@id/tv_wifi_name"
+		            android:layout_toRightOf="@id/tv_wifi_name_label"
+		            android:layout_height="wrap_content"
+		            android:layout_width="80dp"
+		            android:layout_marginLeft="10dp"/>
+		           
+		        <TextView
+		            android:id="@id/tv_wifi_status_label" 
+		            android:text="@string/status_label"
+		            android:layout_width="60dp"
+		            android:layout_height="wrap_content"
+		            android:layout_toRightOf="@id/tv_wifi_name"
+		            android:layout_marginLeft="10dp"
+		            android:textColor="@color/text_label_color"/>
+		        <TextView 
+		            android:id="@id/tv_wifi_status"
+		            android:text="null"
+		            android:layout_height="wrap_content"
+		            android:layout_toRightOf="@id/tv_wifi_status_label"
+		            android:layout_marginLeft="10dp"
+		            android:layout_width="80dp"/>
+		           
+		       	<TextView
+		        	android:id="@id/tv_wifi_flow_data_label" 
+		     		android:text="@string/flow_data_label"
+		     		android:layout_width="60dp"
+		     		android:layout_height="wrap_content"           
+		    		android:layout_marginLeft="10dp"
+		    		android:layout_below="@id/tv_wifi_name_label"
+		    		android:textColor="@color/text_label_color"/>
+		          
+		        <TextView 
+		           	android:text="null"
+		           	android:id="@id/tv_wifi_flow_data"
+		           	android:layout_toRightOf="@id/tv_wifi_flow_data_label"
+		           	android:layout_height="wrap_content"
+		           	android:layout_width="80dp"
+		           	android:layout_below="@id/tv_wifi_name"
+		           	android:layout_marginLeft="10dp"/>
+		           
+		        <TextView
+			        android:id="@id/tv_wifi_bandwidth_label" 
+		         	android:text="@string/bandwidth_label"
+		         	android:layout_width="60dp"
+		         	android:layout_height="wrap_content"           
+		       		android:layout_marginLeft="10dp"
+		       		android:layout_below="@id/tv_wifi_status_label"
+		       		android:layout_toRightOf="@id/tv_wifi_flow_data"
+		       		android:textColor="@color/text_label_color"/>
+		          
+				<TextView 
+			        android:text="null"
+			        android:id="@id/tv_wifi_bandwidth"
+			        android:layout_toRightOf="@id/tv_wifi_bandwidth_label"
+			        android:layout_width="80dp"
+			        android:layout_marginLeft="10dp"
+			        android:layout_height="wrap_content"
+			        android:layout_below="@id/tv_wifi_status"/>
+		           
+				<TextView
+		            android:id="@+id/tv_wifi_cur_ap_label" 
+		         	android:text="@string/cur_ap_label"
+		         	android:layout_width="60dp"
+		         	android:layout_height="wrap_content"           
+		       		android:layout_marginLeft="10dp"
+		       		android:layout_below="@id/tv_wifi_flow_data_label"
+		       		android:textColor="@color/text_label_color"/>
+		          
+		        <TextView 
+		         	android:text="null"
+		         	android:id="@+id/tv_wifi_cur_ap"
+		         	android:layout_toRightOf="@id/tv_wifi_cur_ap_label"
+		         	android:layout_width="80dp"
+		         	android:layout_marginLeft="10dp"
+		         	android:layout_height="wrap_content"
+		         	android:layout_below="@id/tv_wifi_flow_data"/>
+	           
+	           <TextView
+		            android:id="@+id/tv_wifi_ip_label" 
+		          	android:text="@string/ip_label"
+		          	android:layout_width="60dp"
+		          	android:layout_height="wrap_content"           
+		         	android:layout_marginLeft="10dp"
+		         	android:layout_toRightOf="@id/tv_wifi_cur_ap"
+		         	android:layout_below="@id/tv_wifi_bandwidth_label"
+		         	android:textColor="@color/text_label_color"/>
+	          
+	           <TextView
+	               android:text="null"
+		           android:id="@+id/tv_wifi_ip"
+		           android:layout_toRightOf="@id/tv_wifi_ip_label"
+		           android:layout_width="80dp"
+		           android:layout_marginLeft="10dp"
+		           android:layout_height="wrap_content"
+		           android:layout_below="@id/tv_wifi_bandwidth"/>
+	      	</RelativeLayout>      	
+	 	</LinearLayout> 
+		
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/main_tab_bg"
+	    android:layout_marginTop="10dp">
+	    <TextView 
+	        android:text="@string/wifi_flow_info"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="20sp"
+	        android:textColor="@color/text_label_color_tab"/>
+	    <ImageView 
+        android:src="@drawable/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"/>
+	    
+		<TableLayout 
+			android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    >
+		      
+		        <TableRow 
+		            android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+		        	>
+		            <TextView
+		                android:text="@string/protocol_label" 
+		                android:layout_width="38dp"                
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                android:textColor="@color/table_head_color"/>
+		            
+		            <TextView
+		                android:text="@string/source_address_label" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                android:textColor="@color/table_head_color"/>
+		            
+		            <TextView
+		                android:text="@string/dest_address_label" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                android:textColor="@color/table_head_color"/>
+		            
+		            <TextView
+		                android:text="@string/source_address_port" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                android:textColor="@color/table_head_color"/>
+		            
+		            <TextView
+		                android:text="@string/dest_address_port" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                android:textColor="@color/table_head_color"/>
+		            
+		            
+		        </TableRow>
+		</TableLayout>
+	    	    	       
+		<ImageView 
+        android:src="@drawable/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"/>
+		    
+		<ScrollView 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:scrollbars="vertical"
+		    android:scrollbarAlwaysDrawVerticalTrack="true">		    
+		
+		    <TableLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        >
+		       <!--   
+		        <TableRow 
+		            android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content">
+		            <TextView
+		                android:text="@string/protocol_label" 
+		                android:layout_width="38dp"                
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:text="@string/source_address_label" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:text="@string/dest_address_label" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:text="@string/source_address_port" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:text="@string/dest_address_port" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            
+		        </TableRow>
+		        -->
+		        
+		        <TableRow 
+		            android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+		        	android:gravity="center"
+		        	android:layout_marginTop="5dp"
+		        	android:layout_marginBottom="5dp">
+		            <TextView
+		                android:id="@+id/tv_protocol_1"
+		                android:text="null"
+		                android:maxLines="1" 
+		                android:layout_width="48dp"                
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                />
+		            
+		            <TextView
+		                android:id="@+id/tv_sa1"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_da1"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_sp1"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_dp1"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            
+		        </TableRow>
+		        
+		        <ImageView 
+        			android:src="@drawable/divider"
+        			android:layout_width="fill_parent"
+        			android:layout_height="2dp"/>
+		            
+		        <TableRow 
+		            android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+		        	android:gravity="center"
+		        	android:layout_marginTop="5dp"
+		        	android:layout_marginBottom="5dp">
+		            <TextView
+		                android:id="@+id/tv_protocol_2"
+		                android:text="null"
+		                android:maxLines="1" 
+		                android:layout_width="48dp"                
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                />
+		            
+		            <TextView
+		                android:id="@+id/tv_sa2"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_da2"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_sp2"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_dp2"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            
+		        </TableRow>
+		        <ImageView 
+        			android:src="@drawable/divider"
+        			android:layout_width="fill_parent"
+        			android:layout_height="2dp"/>		        
+		        <TableRow 
+		            android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+		        	android:gravity="center"
+		        	android:layout_marginTop="5dp"
+		        	android:layout_marginBottom="5dp">
+		            <TextView
+		                android:id="@+id/tv_protocol_3"
+		                android:text="null"
+		                android:maxLines="1" 
+		                android:layout_width="48dp"                
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                />
+		            
+		            <TextView
+		                android:id="@+id/tv_sa3"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_da3"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_sp3"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_dp3"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            
+		        </TableRow>
+		        <ImageView 
+        			android:src="@drawable/divider"
+        			android:layout_width="fill_parent"
+        			android:layout_height="2dp"/>		       
+		       
+		       <TableRow 
+		            android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+		        	android:gravity="center"
+		        	android:layout_marginTop="5dp"
+		        	android:layout_marginBottom="5dp">
+		            <TextView
+		                android:id="@+id/tv_protocol_4"
+		                android:text="null"
+		                android:maxLines="1" 
+		                android:layout_width="48dp"                
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                />
+		            
+		            <TextView
+		                android:id="@+id/tv_sa4"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_da4"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_sp4"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_dp4"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            
+		        </TableRow>
+		        <ImageView 
+        			android:src="@drawable/divider"
+        			android:layout_width="fill_parent"
+        			android:layout_height="2dp"/>		       
+		     	<TableRow 
+		            android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+		        	android:gravity="center"
+		        	android:layout_marginTop="5dp"
+		        	android:layout_marginBottom="5dp">
+		            <TextView
+		                android:id="@+id/tv_protocol_5"
+		                android:text="null"
+		                android:maxLines="1" 
+		                android:layout_width="48dp"                
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                />
+		            
+		            <TextView
+		                android:id="@+id/tv_sa5"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_da5"
+		                android:text="null" 
+		                android:layout_width="75dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_sp5"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            <TextView
+		                android:id="@+id/tv_dp5"
+		                android:text="null" 
+		                android:layout_width="59dp"
+		                android:layout_marginLeft="1dp"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"/>
+		            
+		            
+		        </TableRow>
+		      <ImageView 
+       			android:src="@drawable/divider"
+       			android:layout_width="fill_parent"
+       			android:layout_height="2dp"/>	   
+		        
+		    </TableLayout>
+		   	    
+		        
+		</ScrollView> 
+	    
+    </LinearLayout>	
+	
+	<!-- 
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:layout_marginBottom="5dp"
+	    android:layout_weight="0"
+	    android:gravity="center_horizontal"
+	    >
+	    
+	    <Button
+	        android:text="@string/ok_label" 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+	    <Button
+	        android:text="@string/cancel_label" 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="30dp"/>
+	    
+	</LinearLayout>
+	 -->
+</LinearLayout>

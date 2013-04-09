@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="main_label_color">#EE7600</color>
+    <color name="orange">#EE7600</color>
+    <color name="text_label_color">#8B2252</color>
+    <color name="text_label_color_tab">#242424</color>
+    <color name="table_head_color">#FF8247</color>
+
+    
+</resources>
